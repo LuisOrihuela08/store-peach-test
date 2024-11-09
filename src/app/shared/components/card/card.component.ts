@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../../core/index-model';
 
 @Component({
   selector: 'app-card',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
 
+  @Input({required : true}) producto! : Product;
 }

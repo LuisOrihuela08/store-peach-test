@@ -5,7 +5,22 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    children : [ 
+      {
+        path : 'listar-producto',
+        loadChildren : () => import('../../features/listar-producto/listar-producto.module').then(m => m.ListarProductoModule)
+      },
+      {
+        path : 'agregar-producto',
+        loadChildren : () => import('../../features/agregar-producto/agregar-producto.module').then(m => m.AgregarProductoModule)
+      },
+      {
+        path : '**',
+        redirectTo : 'listar-producto'
+
+      }
+    ]
   }
 ];
 
